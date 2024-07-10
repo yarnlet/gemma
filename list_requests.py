@@ -28,3 +28,15 @@ async def refresh_list():
             line_split = line.split("'")
             line = line_split[1]
             routes_list.append(line)
+            
+    # save routes_list to routes.txt
+    with open(FULLDIR + "\\tree\\routes.txt", "w") as f:
+        for route in routes_list:
+            f.write(route + "\n")
+            
+    # grab javascript of each route
+    for route in routes_list:
+        route = route[1:]
+        js = get(JS_PATH + route)
+        with open(FULLDIR + "\\scripts\\" + route.replace("/pages/", ""), "w", encoding="utf-8") as f:
+            f.write(js.text)

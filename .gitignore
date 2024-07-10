@@ -1,3 +1,10 @@
+# visual studio code files
 .history
 .vscode
+__pycache__
+# ignore all files in list directory (debug)
+list/checksums/*
+list/tree/*
+list/scripts/*
+# don't add .env file
 .env
